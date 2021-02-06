@@ -4,5 +4,5 @@
     "require": {
         "php": ">=7.4"
     },
-    "version": "BETA"
+    "version": "1-beta"
 }
