@@ -1,6 +1,6 @@
 {
     "name": "soldeveloper/signuploginsystem",
-    "description": "Easy Login & SignUp System Only Support Sqlite ",
+    "description": "Easy Login & SignUp System ",
     "require": {
         "php": ">=7.4"
     }
