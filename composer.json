@@ -1,0 +1,7 @@
+{
+    "name": "SolDeveloper/SLS",
+    "description": "Easy Login & SignUp System Only Support Sqlite ",
+    "require": {
+        "php": ">=7.4"
+    }
+}
