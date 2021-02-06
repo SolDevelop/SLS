@@ -4,5 +4,8 @@
     "require": {
         "php": ">=7.4"
     },
-    "version": "1-beta"
+    "version": "1-beta",
+
+ "license": "MIT"
+
 }
