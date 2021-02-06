@@ -1,10 +1,13 @@
 <?php 
 
 function unit($Username, $Password, $Email, $Database, $DataFile, $tablename){
-
-
 if ($Database == "sqlite"){
-
+if (!isset($Username)){
+	echo "false";
+	return "false";
+	exit();
+	
+}
 $db = new SQLite3('$DataFile');
 $SUEmail = str_replace("@", ">", $Email);
 if($db){
@@ -36,16 +39,17 @@ $SUPassword = password_hash('$Password', PASSWORD_DEFAULT);
 $SUEmail = str_replace("@", ">", $Email);
 $db->exec("INSERT INTO $tablename(Username, Password, Email) VALUES('$Username', '$SUPassword', '$SUEmail')");
 $cookie_bat = "UID";
-$cookie_indesk = $Username
+$cookie_indesk = $Username;
 setcookie($cookie_bat, $cookie_indesk, time() + (86400 * 30), "/");
 $cookie_pat = "SID";
 setcookie($cookie_pat, $SUPassword, time() + (86400 * 30), "/");
 echo "State: Done!";
+}
+
 }else {
 
+return "F2";
 
-
-}
 }
 
 }
