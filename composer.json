@@ -3,5 +3,6 @@
     "description": "Easy Login & SignUp System ",
     "require": {
         "php": ">=7.4"
-    }
+    },
+    "version": "BETA"
 }
