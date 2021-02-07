@@ -7,9 +7,9 @@ Main
 # Disclaimer:
 > Only SQLite works And Sign Up Only Works Right Now But In Future I Will Support All
 # Usage:
-> you will need to use unit function! by requiring the php file 
-> now you will need The Table Name & Database File & The Database should equal to sqlite example code
-$UM = $_POST['Usernameinputnamehere'];
+you will need to use unit function! by requiring the php file 
+now you will need The Table Name & Database File & The Database should equal to sqlite example code
+> $UM = $_POST['Usernameinputnamehere'];
 $PW = $_POST['Passwordinputnamehere'];
 $EM = $_POST['Emailinputnamehere'];
 $DM = "sqlite";
