@@ -9,12 +9,12 @@ Main
 # Usage:
 > you will need to use unit function! by requiring the php file 
 > now you will need The Table Name & Database File & The Database should equal to sqlite example code
-> $UM = $_POST['Usernameinputnamehere'];
-> $PW = $_POST['Passwordinputnamehere'];
-> $EM = $_POST['Emailinputnamehere'];
-> $DM = "sqlite";
-> $DMF = "database.db";
-> $TN = "the table name here";
-> $log = new Unit();
-> $log->($UM, $PW, $EM, $DM, $DMF, $TN);
+$UM = $_POST['Usernameinputnamehere'];
+$PW = $_POST['Passwordinputnamehere'];
+$EM = $_POST['Emailinputnamehere'];
+$DM = "sqlite";
+$DMF = "database.db";
+$TN = "the table name here";
+$log = new Unit();
+$log->($UM, $PW, $EM, $DM, $DMF, $TN);
 > // after that it should do it the trick with setting the cookie for user called UID
