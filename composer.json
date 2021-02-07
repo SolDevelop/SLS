@@ -1,11 +1,17 @@
 {
-    "name": "soldeveloper/signuploginsystem",
-    "description": "Easy Login & SignUp System ",
-    "require": {
-        "php": ">=7.4"
-    },
-    "version": "1-beta",
-
- "license": "MIT"
-
+  "name": "soldeveloper/signuploginsystem",
+  "description": "Easy Login & SignUp System",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "version": "1-b",
+  "authors": [
+    {
+      "name": "SolDeveloper",
+      "email": "soldeveloper@icloud.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    
+  }
 }
