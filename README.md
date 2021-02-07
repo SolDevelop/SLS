@@ -18,3 +18,4 @@ $TN = "the table name here";
 $log = new Unit();
 $log->($UM, $PW, $EM, $DM, $DMF, $TN);
 > // after that it should do it the trick with setting the cookie for user called UID
+# You Can Use Non Composer Version!
