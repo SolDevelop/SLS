@@ -1,13 +1,13 @@
 Main
 -------------------
 # What SLS Stand For
-> Sign Up Login System
+Sign Up Login System
 # What is the main idea of this
-> I'm Trying To Make Sign Up And Login Systems as easy as possible to all developers for no time wasting 
+I'm Trying To Make Sign Up And Login Systems as easy as possible to all developers for no time wasting 
 # Supported Databases:
-> SQLite Using signup method MySQL using signupmysqlmethod
+SQLite Using signup method MySQL using signupmysqlmethod
 # New Features
-> check method to check the data in SQLite Database
+check method to check the data in SQLite Database
 > require "S&LS.php";
 $log = new Unit();
 $log->check("sqlite", "name the database file", "name of the table");
