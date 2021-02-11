@@ -8,12 +8,10 @@ Main
 > SQLite Using signup method MySQL using signupmysqlmethod
 # New Features
 > check method to check the data in SQLite Database
-
-require "S&LS.php";
+> require "S&LS.php";
 $log = new Unit();
 $log->check("sqlite", "name the database file", "name of the table");
 echo $log->state;
->
 # Usage:
 you will need to use unit function! by requiring the php file 
 now you will need The Table Name & Database File & The Database should equal to sqlite example code
