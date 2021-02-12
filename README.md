@@ -5,7 +5,7 @@ Sign Up Login System
 # What is the main idea of this
 I'm Trying To Make Sign Up And Login Systems as easy as possible to all developers for no time wasting 
 # Supported Databases:
-SQLite Using signup method MySQL using signupmysqlmethod
+SQLite Using signup method MySQL using signupmysqlmethod Now!!! Login Systems works For Mysql use loginmysql and for Sqlite use login
 # New Features
 check method to check the data in SQLite Database
 >
