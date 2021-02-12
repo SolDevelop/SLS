@@ -3,6 +3,7 @@
   "description": "Easy Login & SignUp System",
   "minimum-stability": "stable",
   "license": "MIT",
+  "version": "1.3b",
   "authors": [
     {
       "name": "SolDeveloper",
