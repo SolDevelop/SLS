@@ -19,7 +19,7 @@ class Unit{
     public $DataPW;
     public $DataUM;
     public $port;
-
+	
 
 
 
@@ -33,14 +33,14 @@ class Unit{
 
             }
             $Username = stripslashes($Username);
-            $Password = stripslashes($Password);
+            $PW = stripslashes($Password);
             $Email = stripslashes($Email);
             $db = new SQLite3('$DataFile');
             $SUEmail = str_replace("@", ">", $Email);
             if ($db) {
 
             }
-
+             
             $results = $db->query("SELECT * FROM $tablename");
 
             while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
@@ -64,7 +64,7 @@ class Unit{
 
             } else {
 
-                $SUPassword = password_hash('$Password', PASSWORD_DEFAULT);
+                $SUPassword = password_hash('$PW', PASSWORD_DEFAULT);
                 $SUEmail = str_replace("@", ">", $Email);
                 $db->exec("INSERT INTO $tablename(Username, Password, Email) VALUES('$Username', '$SUPassword', '$SUEmail')");
                 $cookie_bat = "UID";
@@ -158,6 +158,7 @@ class Unit{
 
 
         }
+		$PW = stripslashes($Password);
         if (!isset($portop['port'])){
 
             $ports = 3306;
@@ -196,7 +197,7 @@ class Unit{
 
         } else {
 
-            $SUPassword = password_hash('$Password', PASSWORD_DEFAULT);
+            $SUPassword = password_hash('$PW', PASSWORD_DEFAULT);
             $SUEmail = str_replace("@", ">", $Email);
             $conn->query("INSERT INTO $tablename(Username, Password, Email) VALUES('$Username', '$SUPassword', '$SUEmail')");
             $cookie_bat = "UID";
@@ -226,15 +227,43 @@ class Unit{
 
 
             $myusername = stripslashes($Username);
-            $mypassword = stripslashes ($Password);
+			
+            $PW = stripslashes($Password);
+            
+			
+			
+            $query = "SELECT COUNT(*) as count FROM $tablename WHERE Username='$myusername'";
+            $resultes = $db->query("SELECT Password FROM $tablename WHERE Username='$myusername'");
 
-            $query = "SELECT * FROM $tablename WHERE Username='$myusername' AND Password='$mypassword'";
-            $result = sqlite_query($query);
-            $count = sqlite_num_rows($result);
-
-            if ($count==1){
-                $this->state = "true";
-                return $this->state;
+        while ($row = $resultes->fetchArray(SQLITE3_ASSOC)) {
+            
+            $checkpw = $row['Password'];
+			
+			
+        }
+		$vm = password_verify('$PW', $checkpw);
+		
+        $result = $db->query($query);
+         if ($vm == $checkpw) {
+         $passc = 1;
+		 
+         } else {
+         $passc = 0;
+		 
+        }
+      $row=$result->fetchArray(SQLITE3_ASSOC);
+    // check for empty result
+     if ($row != false) {
+      $numRows = 1;
+    }else {
+		$numRows = 0;
+	}
+	
+            if ($numRows == 1 && $passc == 1){
+               
+			   $this->state = "true";
+				   return $this->state;
+			  
             }else {
                 $this->state = "false";
                 return $this->state;
