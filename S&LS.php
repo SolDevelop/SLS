@@ -19,6 +19,8 @@ class Unit{
     public $DataPW;
     public $DataUM;
     public $port;
+	public $ports;
+	public $portop;
 	
 
 
