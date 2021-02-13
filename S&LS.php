@@ -32,6 +32,9 @@ class Unit{
 
 
             }
+            $Username = stripslashes($Username);
+            $Password = stripslashes($Password);
+            $Email = stripslashes($Email);
             $db = new SQLite3('$DataFile');
             $SUEmail = str_replace("@", ">", $Email);
             if ($db) {
