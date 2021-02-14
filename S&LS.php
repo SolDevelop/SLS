@@ -1,4 +1,31 @@
 <?php
+if (!file_exists("./key.json")){
+	$QWV = 0;
+	exit();
+}
+$asd = file_get_contents("./key.json");
+$asc = json_decode($asd, true);
+$aes = $asc['key'];
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,"http://vsbenginedomaining.c1.biz/kepu/api.php");
+$headers = [
+    'API: WILDcheck',
+	'PEAK: *#$3WT3kG=]E%'
+];
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+$chrck = curl_exec ($ch);
+
+curl_close ($ch);
+
+if (strpos($chrck, $aes) !== false){
+	$QWV = 1;
+}else {
+	$QWV = 0;
+	exit();
+	
+}
 if (isset($port)){
 
     $portop = array(
@@ -21,12 +48,16 @@ class Unit{
     public $port;
 	public $ports;
 	public $portop;
+	private $QWV;
 	
 
 
-
+    
     function signup($Username, $Password, $Email, $Database, $DataFile, $tablename)
     {
+		if ($QWV == 0 or null){
+			exit();
+		}
         if ($Database == "sqlite") {
             if (!isset($Username)) {
                 $this->state = "false";
@@ -91,6 +122,9 @@ class Unit{
 
     function create($Database, $DataFile, $tablename)
     {
+		if ($QWV == 0 or null){
+			exit();
+		}
         if (!$Database == "sqlite"){
 
             echo "use createmysql for mysql";
@@ -134,7 +168,14 @@ class Unit{
 
 
     function check($Database, $DataFile, $tablename){
-        $db = new SQLite3('$DataFile');
+        if ($QWV == 0 or null){
+			exit();
+		}
+		if ($Database = "mysql"){
+			$this->state = "sorry mysql not supported right now";
+			return $this->state;
+		}
+		$db = new SQLite3('$DataFile');
         $results = $db->query("SELECT * FROM $tablename");
 
         while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
@@ -148,7 +189,10 @@ class Unit{
         return $this->state;
     }
     function signupmysql($Database, $Username, $Password, $Email, $tablename, $DatabaseN, $DataPW, $DataUM, $ip, $portop){
-        if (!$Database == "mysql"){
+        if ($QWV == 0 or null){
+			exit();
+		}
+		if (!$Database == "mysql"){
 
             echo "use signup for sqlite";
 
@@ -215,7 +259,10 @@ class Unit{
 
     }
    function login($Username, $Password, $Database, $DataFile, $tablename){
-        if (!$Database == "sqlite"){
+        if ($QWV == 0 or null){
+			exit();
+		}
+		if (!$Database == "sqlite"){
 
             $this->state = "use loginmysql";
             return $this->state;
@@ -274,7 +321,10 @@ class Unit{
 
    }
     function loginmysql($Username, $Password, $Database, $tablename, $DatabaseN, $DataPW, $DataUM, $ip, $portop){
-        if (!$Database == "mysql"){
+        if ($QWV == 0 or null){
+			exit();
+		}
+		if (!$Database == "mysql"){
 
             $this->state = "use login for sqlite";
             return $this->state;
